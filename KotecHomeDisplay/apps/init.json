@@ -9,15 +9,15 @@
       "name": "openweathermap",
       "initFunction": "initOpenweathermap",
       "startFunction": "appsOpenweathermap",
-	  "key" : "0602e6f7db810e6d4a5e1df63197fcae",
-	  "city" : "Le versoud",
+	  "key" : "**********",
+	  "city" : "Grenoble",
 	  "country" : "fr"
     },
 	{
       "name": "cryptocompare",
       "initFunction": "initCryptocompare",
       "startFunction": "appsCryptocompare",
-	  "key" : "71011d56be36be128057d49967b026dbcd4b96b9bdb70b5c8892a64213911d99",
+	  "key" : "*****************",
 	  "coin" : "BTC",
 	  "monney" : "EUR"
     }
