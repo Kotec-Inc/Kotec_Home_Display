@@ -1,0 +1,18 @@
+{
+  "nom": "Gmail",
+  "version": "0.0.1",
+  "description": "Gmail notification",
+  "auteur": "Kotec",
+  "animated" : false,
+  "refresh": 10000,
+  "icone" : [
+				["#EC2626", "#EC2626", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#EC2626", "#EC2626"],
+				["#EC2626", "#EC2626", "#EC2626", "#FFFFFF", "#FFFFFF", "#EC2626", "#EC2626", "#EC2626"],
+				["#EC2626", "#FFFFFF", "#EC2626", "#EC2626", "#EC2626", "#EC2626", "#FFFFFF", "#EC2626"],
+				["#EC2626", "#FFFFFF", "#FFFFFF", "#EC2626", "#EC2626", "#FFFFFF", "#FFFFFF", "#EC2626"],
+				["#EC2626", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#EC2626"],
+				["#EC2626", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#EC2626"],
+				["#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000"],
+				["#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000"]
+			]
+}

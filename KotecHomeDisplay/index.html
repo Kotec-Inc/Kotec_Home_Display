@@ -1,0 +1,110 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+		<script type="text/javascript" src="js/oXHR.js"></script>
+		<script type="text/javascript" src="js/font.js"></script>
+		<script type="text/javascript" src="js/init.js"></script>
+		<script>
+			var fontData = new initFont();
+			var font = fontData.getFont();
+			var police = 20;
+			var adjuste = 4; //Chez pas pourquoi.
+			var digits = 8;
+			var selected = 0; //0, 1, 2, 3,....
+			var interval = 5000; // Pour faire défiler automatiquement les écrans
+			var animSelect = 0;
+		</script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<script>
+			var initKotec = new initKotecAllApps();	// Chargement du fichier init.json
+			var nbrApps = initKotec.getCountApps(); // Retourne le nombre d'application dispo
+			
+			for(var i = 0; i < nbrApps; i++){
+				var script = document.createElement("script"); 
+				script.src = 'Apps/'+ initKotec.getData()[i].name +'/apps.js';
+				document.head.appendChild(script);
+			}				
+		</script>
+	</head>
+	<body>
+		<body style="background-color:black;">
+		<div id="debug" style="color: white"></div>
+			<div id="ecran" style="width: 1000px; height: 192px; background-color: black; position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto;">
+				<div id="icone" style="position: absolute; width: 192px; height: 192px;">
+				</div>
+				<div id="text" style="width: 650px; height: 196px; position absolute; margin-left : 212px; margin-top : 0px;">
+				</div>
+			</div>			
+			<script>
+			var intervalRefresh;
+			var intervalAnimated;
+			var initFunction = initKotec.getData()[selected].initFunction;
+			var startFunction = initKotec.getData()[selected].startFunction;
+			
+			console.log(nbrApps);
+			window.addEventListener("keydown", function (event) {
+				if (event.defaultPrevented) {
+					return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
+				}
+
+				switch (event.key) {
+					case "ArrowLeft":
+					  selected--;
+					  if(selected < 0)
+						selected = nbrApps - 1;
+					  initFunction = initKotec.getData()[selected].initFunction;
+					  startFunction = initKotec.getData()[selected].startFunction;
+					  reload();
+					  break;
+					case "ArrowRight":
+					  selected++;
+					  if(selected >= nbrApps)
+						selected = 0;
+					  initFunction = initKotec.getData()[selected].initFunction;
+					  startFunction = initKotec.getData()[selected].startFunction;
+					  reload();
+					  break;
+					default:
+					  return; // Quitter lorsque cela ne gère pas l'événement touche.
+				  }
+				console.log(selected);
+			  // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
+			  event.preventDefault();
+			}, true);
+			
+			window.onload = function(){
+				var appsData = new window[initFunction]();
+				var appsRefresh = appsData.getRefresh();
+				initKotecHomeDisplay(appsData);
+				reload();
+			}
+			
+			function reload(){
+				var appsData = new window[initFunction]();
+				var appsRefresh = appsData.getRefresh();
+				var appsAnimated = appsData.getAnimated();
+				
+				animSelect = 0;
+				
+				console.log("Clear all timer");
+				clearInterval(intervalRefresh);
+				clearInterval(intervalAnimated);
+				
+				debug(appsData);
+				
+				affichageIcone(appsData);
+				affichageText();
+				
+				if(appsRefresh != 0){
+					console.log("Create timer pour " + appsData.getName());
+					intervalRefresh = setInterval(affichageText, appsRefresh);
+				}
+				
+				if(appsAnimated == true){
+					console.log("Create timer pour animer " + appsData.getName());
+					intervalAnimated = setInterval(affichageIcone, appsData.getTimeAnim());
+				}
+			}
+		</script>
+	</body>
+</html>
