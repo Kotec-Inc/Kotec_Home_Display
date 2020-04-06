@@ -183,7 +183,7 @@ Lors du chargement de la page index.html, le script va charger les données disp
   ]
 }
 ```  
-Les trois données suivante sont obligatoire :
+Les trois données suivante sont obligatoire :  
 `"name" : ` Correspond au nom du dossier de votre apps.  
 `"initFunction" : ` Correspond au nom de votre fonction init.  
 `"startFunction" : ` Correspond au nom de la fonction apps.  
