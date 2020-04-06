@@ -15,7 +15,9 @@ Il y a 2 afficheur :
 - L'afficheur d'icone, fait 8x8.
 - L'afficheur de text, est composer de 8 digits, chacun d'eux fait 3x8.
 
-La couleur de chaque pixel, est définie par un code hexa.
+La couleur de chaque pixel, est définie par un code hexa décimale.
+
+Lors du chargement de la page le script va charger les données disponible dans le fichier **apps/initApps.json**
 
 # Créer sont apps
 La hiérachie du dossier de votre apps doit contenir les fichiers suivants obligatoirement :
