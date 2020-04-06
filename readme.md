@@ -23,7 +23,7 @@ La hiérachie du dossier de votre apps doit contenir les fichiers suivants oblig
  - apps.js
  
 ### init.json
-Ce fichier comprend toute les informations nécessaire au fonction de base de Kotec Home Display
+Ce fichier comprend toute les informations nécessaire au fonction de base de Kotec Home Display. 
 Par exemple le init.json de l'horloge de base (non minifier):
 ```
 {
@@ -98,3 +98,5 @@ Une fois votre init.json fini vous faudra, le minifier (avec par exemple https:/
 Le fichier init.json ne contient donc pas de données json brut mais une variable JS contenant les données json. (J'ai rencontrer un problèmes de cross domaine en essayant de charger le fichier init.json, au format json, vu que le fichier est ouvert en local).
 
 ### apps.js
+Ce fichier contient le programme de votre application. Il contient aussi les principales fonctions.
+Par exemple : 
