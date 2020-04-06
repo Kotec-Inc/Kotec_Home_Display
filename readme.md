@@ -172,10 +172,10 @@ function appsOpenweathermap(){
 }
 ```
 La fonction `initOpenweathermap()` permet d'initialisé les données de l'application.  
-La fonction `appsOpenweathermap()` permet de retourner les données à afficher. 
+La fonction `appsOpenweathermap()` permet de retourner les données à afficher.    
 Ces fonctions son obligatoire pour le bon fonctionnement de Kotec Home Display. Le nom des fonctions principale est important, pour plus de lisibilité et évité les doublons, il vaut mieux y inclure le nom de votre apps.  
 
-Ici la fonction `loadData()` permet de récupérer via une API des données météo. Elle est donc optionelle.
+Ici la fonction `loadData()` permet de récupérer via une API des données météo. Elle est donc optionel.
 
 ### Activer son apps
 Lors du chargement de la page index.html, le script va charger les données disponible dans le fichier **apps/initApps.json**. (non minifier ici)   
