@@ -17,7 +17,34 @@ Il y a 2 afficheur :
 
 La couleur de chaque pixel, est définie par un code hexa décimale.
 
-Lors du chargement de la page le script va charger les données disponible dans le fichier **apps/initApps.json**
+Lors du chargement de la page le script va charger les données disponible dans le fichier **apps/initApps.json**.   
+```
+{
+  "list": [
+    {
+      "name": "Horloge",
+      "initFunction": "initHorloge",
+      "startFunction": "appsHorloge"
+    },
+	{
+      "name": "openweathermap",
+      "initFunction": "initOpenweathermap",
+      "startFunction": "appsOpenweathermap",
+	  "key" : "0602e6f7db810e6d4a5e1df63197fcae",
+	  "city" : "Le versoud",
+	  "country" : "fr"
+    },
+	{
+      "name": "cryptocompare",
+      "initFunction": "initCryptocompare",
+      "startFunction": "appsCryptocompare",
+	  "key" : "71011d56be36be128057d49967b026dbcd4b96b9bdb70b5c8892a64213911d99",
+	  "coin" : "BTC",
+	  "monney" : "EUR"
+    }
+  ]
+}
+```
 
 # Créer sont apps
 La hiérachie du dossier de votre apps doit contenir les fichiers suivants obligatoirement :
@@ -97,7 +124,7 @@ Une fois votre **init.json** fini vous faudra, le minifier (avec par exemple htt
 
 `var jsonHorloge = '{"nom":"Horloge","version":"0.0.1","description":"Une simple horloge.","auteur":"Kotec","animated":true,"nbrAnim":4,"timeAnim":1000,"refresh":500,"icone":[[["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000"]],[["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000"]],[["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000"]],[["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000"]]]}';`
 
-Le fichier **init.json** ne contient donc pas de données json brut mais une variable JS, ici `var jsonHorloge` contenant les données json. (J'ai rencontrer un problèmes de cross domaine en essayant de charger le fichier **init.json**, au format json, vu que le fichier est ouvert en local, d'où l'utilisation de la variable).
+Le fichier **init.json** ne contient donc pas de données json brut mais une variable JS, ici `var jsonHorloge` contenant les données json. (J'ai rencontrer un problèmes de cross domaine en essayant de charger le fichier **init.json**, au format json, vu que le fichier est ouvert en local, d'où l'utilisation de la variable pour contourner le problème).
 
 #### ATTENTION ! La varible doit être contenu sur une seule ligne. Il est conseiller de garder une copie du fichier sous format json qui est plus lisible.
 
@@ -148,9 +175,8 @@ initHorloge.prototype.getTimeAnim = function(){
 function appsHorloge(){
 	var date = new Date(Date.now());
 	text = date.getHours().toString().padStart(2, 0) + ":" + date.getMinutes().toString().padStart(2, 0) + ":" + date.getSeconds().toString().padStart(2, 0);
-	//console.log(text);
 	return text;
 }
 ```
 
-Toute ces fonctions son obligatoire pour le bon fonctionnement de Kotec Home Display. Le nom des fonctions n'est pas important, mais pour plus de lisibilité, il vaut mieux y inclure le nom de votre apps. 
+Toute ces fonctions son obligatoire pour le bon fonctionnement de Kotec Home Display. Le nom des fonctions principale est important, pour plus de lisibilité et évité les doublons, il vaut mieux y inclure le nom de votre apps. 
