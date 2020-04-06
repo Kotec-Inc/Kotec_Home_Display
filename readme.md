@@ -208,4 +208,9 @@ Les trois données suivante sont obligatoire :
 `"initFunction" : ` Correspond au nom de votre fonction init.  
 `"startFunction" : ` Correspond au nom de la fonction apps.  
 
-Vous pouvez ajouter dans ce fichier autant de données que nécessaire au fonctionnemment de votre apps 
+Vous pouvez ajouter dans ce fichier autant de données que nécessaire au fonctionnemment de votre apps, comme par exemple pour l'apps Open Weather Map :   
+`"key" : "*******"` Votre clé API.  
+`"city" : "Grenoble"` La ville dont vous voulez la météo.  
+`"country" : "fr"` Le pays ou la ville se situe.  
+
+C'est données sont accéssible grâce à la variable **myApps**.  
