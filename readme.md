@@ -93,13 +93,61 @@ Par exemple le **init.json** de l'horloge de base (non minifier):
 
 Une fois votre **init.json** fini vous faudra, le minifier (avec par exemple https://codebeautify.org/jsonminifier)
 
-`var jsonNomDeVotreApplication = '{"nom":"Horloge","version":"0.0.1","description":"Une simple horloge.","auteur":"Kotec","animated":true,"nbrAnim":4,"timeAnim":1000,"refresh":500,"icone":[[["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000"]],[["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000"]],[["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000"]],[["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000"]]]}';`
+`var jsonHorloge = '{"nom":"Horloge","version":"0.0.1","description":"Une simple horloge.","auteur":"Kotec","animated":true,"nbrAnim":4,"timeAnim":1000,"refresh":500,"icone":[[["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000"]],[["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000"]],[["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000"]],[["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000"]]]}';`
 
-Le fichier **init.json** ne contient donc pas de données json brut mais une variable JS contenant les données json.   
-(J'ai rencontrer un problèmes de cross domaine en essayant de charger le fichier *init.json*, au format json, vu que le fichier est ouvert en local).
+Le fichier **init.json** ne contient donc pas de données json brut mais une variable JS, ici `var jsonHorloge` contenant les données json.   
+(J'ai rencontrer un problèmes de cross domaine en essayant de charger le fichier **init.json**, au format json, vu que le fichier est ouvert en local).
 
-## ATTENTION ! La varible doit être contenu sur une seule ligne. Il est conseiller de garder une copie du fichier sous format json qui est plus lisible.
+### ATTENTION ! La varible doit être contenu sur une seule ligne. Il est conseiller de garder une copie du fichier sous format json qui est plus lisible.
 
 ### apps.js
-Ce fichier contient le programme de votre apps. Il contient aussi les principales fonctions.
-Par exemple : 
+Ce fichier contient le programme de votre apps. Il contient aussi les principales fonctions.  
+Par exemple le **apps.js** de l'horloge de base : 
+` function initHorloge(){
+	this.jsonData = JSON.parse(jsonHorloge);
+}
+
+initHorloge.prototype.getName = function() {
+	return this.jsonData.nom;
+}
+
+initHorloge.prototype.getDescription = function() {
+	return this.jsonData.description;
+}
+
+initHorloge.prototype.getVersion = function() {
+	return this.jsonData.version;
+}
+
+initHorloge.prototype.getAuteur = function() {
+	return this.jsonData.auteur;
+}
+
+initHorloge.prototype.getIcons = function() {
+	return this.jsonData.icone;
+}
+
+initHorloge.prototype.getRefresh = function() {
+	return this.jsonData.refresh;
+}
+
+initHorloge.prototype.getAnimated = function(){
+	return this.jsonData.animated;
+}
+
+initHorloge.prototype.getNbrAnim = function(){
+	return this.jsonData.nbrAnim;
+}
+
+initHorloge.prototype.getTimeAnim = function(){
+	return this.jsonData.timeAnim;
+}
+
+function appsHorloge(){
+	var date = new Date(Date.now());
+	text = date.getHours().toString().padStart(2, 0) + ":" + date.getMinutes().toString().padStart(2, 0) + ":" + date.getSeconds().toString().padStart(2, 0);
+	//console.log(text);
+	return text;
+}`
+
+Toute ces fonctions son obligatoire pour le bon fonctionnement de Kotec Home Display.
