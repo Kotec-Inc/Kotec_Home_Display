@@ -105,49 +105,90 @@ Une fois votre **init.json** fini vous faudra le minifier.
 Ce fichier contient le programme de votre apps. Il contient aussi les principales fonctions.  
 Par exemple le **apps.js** de l'horloge de base :   
 ``` 
-function initHorloge(){ // Fonction retournant les données de l'application
-	this.jsonData = JSON.parse(jsonHorloge);
+var apiOpenweathermap;
+
+function initOpenweathermap(){
+	myApps = initKotec.getData()[selected];
+	this.jsonData = JSON.parse(jsonOpenweathermap);
 }
 
-initHorloge.prototype.getName = function() {
+initOpenweathermap.prototype.getName = function() {
 	return this.jsonData.nom;
 }
 
-initHorloge.prototype.getDescription = function() {
+initOpenweathermap.prototype.getDescription = function() {
 	return this.jsonData.description;
 }
 
-initHorloge.prototype.getVersion = function() {
+initOpenweathermap.prototype.getVersion = function() {
 	return this.jsonData.version;
 }
 
-initHorloge.prototype.getAuteur = function() {
+initOpenweathermap.prototype.getAuteur = function() {
 	return this.jsonData.auteur;
 }
 
-initHorloge.prototype.getIcons = function() {
+initOpenweathermap.prototype.getIcons = function() {
 	return this.jsonData.icone;
 }
 
-initHorloge.prototype.getRefresh = function() {
+initOpenweathermap.prototype.getRefresh = function() {
 	return this.jsonData.refresh;
 }
 
-initHorloge.prototype.getAnimated = function(){
+initOpenweathermap.prototype.getAnimated = function(){
 	return this.jsonData.animated;
 }
 
-initHorloge.prototype.getNbrAnim = function(){
+initOpenweathermap.prototype.getNbrAnim = function(){
 	return this.jsonData.nbrAnim;
 }
 
-initHorloge.prototype.getTimeAnim = function(){
+initOpenweathermap.prototype.getTimeAnim = function(){
 	return this.jsonData.timeAnim;
 }
 
-function appsHorloge(){ // Fonction retournant le text à afficher
-	var date = new Date(Date.now());
-	text = date.getHours().toString().padStart(2, 0) + ":" + date.getMinutes().toString().padStart(2, 0) + ":" + date.getSeconds().toString().padStart(2, 0);
+function loadData(){
+	var xhr = getXMLHttpRequest();	
+	// Chargement du fichier
+	xhr.open("GET", 'http://api.openweathermap.org/data/2.5/weather?q='+ myApps.city +','+ myApps.country +'&units=metric&appid=' + myApps.key , false);
+	xhr.send(null);
+	if(xhr.readyState != 4 || (xhr.status != 200 && xhr.status != 0)) // Code == 0 en local
+		throw new Error("Impossible de charger la carte nommée \"" + nom + "\" (code HTTP : " + xhr.status + ").");
+	var json = xhr.responseText;
+	this.meteoData = JSON.parse(json);
+	this.meteoData.lastCall = Date.now();
+	console.log("Appel de l'API");
+	console.log(this.meteoData);
+}
+
+loadData.prototype.getTemperature = function(){
+	console.log(this.meteoData.main.temp);
+	return Number.parseFloat(this.meteoData.main.temp).toPrecision(3);
+}
+
+loadData.prototype.getLastCall = function(){
+	return this.meteoData.lastCall;
+}
+
+function appsOpenweathermap(){
+	if(apiOpenweathermap === undefined){
+		console.log("loadData Meteo");
+		apiOpenweathermap = new loadData();
+	}
+	else{
+		if(Date.now() - apiOpenweathermap.getLastCall() > 10 * 60 * 1000 ){ // Si on est supérieur à 10min (en ms) on rappel l'API 
+			apiOpenweathermap = '';
+			apiOpenweathermap = new loadData();
+		}
+	}
+	
+	temp = apiOpenweathermap.getTemperature();
+	if(temp > 0)
+		text = " +"+ temp +"°C";
+	else
+		text = " -"+ temp +"°C";
+	//console.log(text);
 	return text;
 }
 ```
