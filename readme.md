@@ -17,6 +17,8 @@ Il y a 2 afficheur :
 
 La couleur de chaque pixel, est définie par un code hexa décimale.
 
+L'affichage du text se fait caractère par caractère. Kotec Home Display récupère le code ASCII de chaque caractère puis récupère le digits correspondant dans le fichier **fonts/font.json**.
+
 Les fichiers de type **.json** ne contient pas de données json brut mais une variable JS, par exemple `var jsonNomApplication = ` contenant les données json. (J'ai rencontrer un problèmes de cross domaine en essayant de charger les fichiers **.json**, au format json. Vu que le fichier est ouvert en local, j'ai contourner le problème avec une variable JS et garder le format de fichier pour plus de lisibilité).
 
 Pour tenir dans la variable, le code json doit être minifier (avec par exemple https://codebeautify.org/jsonminifier).
