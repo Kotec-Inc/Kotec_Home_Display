@@ -41,7 +41,6 @@ initOpenweathermap.prototype.getTimeAnim = function(){
 	return this.jsonData.timeAnim;
 }
 
-
 function loadData(){
 	var xhr = getXMLHttpRequest();	
 	// Chargement du fichier
