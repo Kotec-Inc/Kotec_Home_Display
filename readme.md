@@ -29,7 +29,7 @@ La hiérachie du dossier de votre apps doit contenir les fichiers suivants oblig
  
 ### init.json
 Ce fichier comprend toute les informations nécessaire au fonction de base de Kotec Home Display.  
-Par exemple le **init.json** de l'horloge de base (non minifier):
+Par exemple le **init.json** de l'apps Open Weather Map (non minifier):
 ```
 {
   "nom": "Open Weather Map",
@@ -75,14 +75,14 @@ Par exemple le **init.json** de l'horloge de base (non minifier):
 `"icone" : ` Le graphisme de votre apps en 8x8. Le code hexa décimale définie la couleur du pixel.    
 
 Une fois votre **init.json** fini vous faudra le minifier.  
-`var jsonOpenweathermap = '{"nom":"Open Weather Map","version":"0.0.1","description":"Chaine météo en temps réel avec l\'API Open Weater Map","auteur":"Kotec","animated":true,"nbrAnim":2,"timeAnim":600,"refresh":0,"icone":[[["#000000","#000000","#FFD700","#000000","#000000","#FFD700","#000000","#000000"],["#FFD700","#000000","#000000","#000000","#000000","#000000","#000000","#FFD700"],["#000000","#000000","#FFD700","#FFD700","#FFD700","#FFD700","#000000","#000000"],["#000000","#000000","#FFD700","#FFD700","#FFD700","#FFFFFF","#FFFFFF","#000000"],["#000000","#FFFFFF","#FFFFFF","#FFD700","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF"],["#FFFFFF","#FFFFFF","#FFFFFF","#FFD700","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF"],["#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF"],["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000"]],[["#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000"],["#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000"],["#000000","#000000","#FFD700","#FFD700","#FFD700","#FFD700","#000000","#000000"],["#000000","#000000","#FFD700","#FFD700","#FFD700","#FFFFFF","#FFFFFF","#000000"],["#000000","#FFFFFF","#FFFFFF","#FFD700","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF"],["#FFFFFF","#FFFFFF","#FFFFFF","#FFD700","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF"],["#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF"],["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000"]]]}';`
+#### ATTENTION ! La varible doit être contenu sur une seule ligne. Il est conseiller de garder une copie du fichier sous format json qui est plus lisible.  
 
-
-#### ATTENTION ! La varible doit être contenu sur une seule ligne. Il est conseiller de garder une copie du fichier sous format json qui est plus lisible.
+`var jsonOpenweathermap = '{"nom":"Open Weather Map","version":"0.0.1","description":"Chaine météo en temps réel avec l\'API Open Weater Map","auteur":"Kotec","animated":true,"nbrAnim":2,"timeAnim":600,"refresh":0,"icone":[[["#000000","#000000","#FFD700","#000000","#000000","#FFD700","#000000","#000000"],["#FFD700","#000000","#000000","#000000","#000000","#000000","#000000","#FFD700"],["#000000","#000000","#FFD700","#FFD700","#FFD700","#FFD700","#000000","#000000"],["#000000","#000000","#FFD700","#FFD700","#FFD700","#FFFFFF","#FFFFFF","#000000"],["#000000","#FFFFFF","#FFFFFF","#FFD700","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF"],["#FFFFFF","#FFFFFF","#FFFFFF","#FFD700","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF"],["#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF"],["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000"]],[["#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000"],["#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000"],["#000000","#000000","#FFD700","#FFD700","#FFD700","#FFD700","#000000","#000000"],["#000000","#000000","#FFD700","#FFD700","#FFD700","#FFFFFF","#FFFFFF","#000000"],["#000000","#FFFFFF","#FFFFFF","#FFD700","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF"],["#FFFFFF","#FFFFFF","#FFFFFF","#FFD700","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF"],["#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF"],["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000"]]]}';
+`  
 
 ### apps.js
 Ce fichier contient le programme de votre apps. Il contient aussi les principales fonctions.  
-Par exemple le **apps.js** de l'horloge de base :   
+Par exemple le **apps.js** de l'apps Open Weather Map :   
 ``` 
 var apiOpenweathermap;
 
