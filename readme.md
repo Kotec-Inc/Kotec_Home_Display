@@ -79,16 +79,16 @@ Par exemple le init.json de l'horloge de base (non minifier):
 
 	]
 }
-```
-- `"nom" : ` Nom de votre application.
-- `"version" : ` Version actuelle de votre application.
-- `"description" : ` Courte déscription de votre application. 
-- `"auteur" : ` Votre nom ou pseudo.
-- `"animated" : ` Si l'icone de votre application peux s'animer : true, sinon false.
-- `"nbrAnim" : ` Nombre d'animation disponible.
-- `"timeAnim" : ` Vitesse d'animation de votre icone en ms.
-- `"refresh" : ` Vitesse de rafraichissement du text afficher en ms
-- `"icone" : ` Le graphisme de votre apps en 8x8. Le code hexa décimale définie la couleur du pixel.
+```  
+`"nom" : ` Nom de votre application.  
+`"version" : ` Version actuelle de votre application.  
+`"description" : ` Courte déscription de votre application.   
+`"auteur" : ` Votre nom ou pseudo.  
+`"animated" : ` Si l'icone de votre application peux s'animer : true, sinon false.  
+`"nbrAnim" : ` Nombre d'animation disponible.  
+`"timeAnim" : ` Vitesse d'animation de votre icone en ms.  
+`"refresh" : ` Vitesse de rafraichissement du text afficher en ms.  
+`"icone" : ` Le graphisme de votre apps en 8x8. Le code hexa décimale définie la couleur du pixel.  
 
 
 Une fois votre init.json fini vous faudra, le minifier (avec par exemple https://codebeautify.org/jsonminifier)
