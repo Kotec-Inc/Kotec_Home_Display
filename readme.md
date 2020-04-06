@@ -19,7 +19,7 @@ La couleur de chaque pixel, est définie par un code hexa décimale.
 
 Les fichiers de type **.json** ne contient pas de données json brut mais une variable JS, par exemple `var jsonNomApplication = ` contenant les données json. (J'ai rencontrer un problèmes de cross domaine en essayant de charger les fichiers **.json**, au format json. Vu que le fichier est ouvert en local, j'ai contourner le problème avec une variable JS et garder le format de fichier pour plus de lisibilité).
 
-le minifier (avec par exemple https://codebeautify.org/jsonminifier)
+Pour tenir dans la variable, le code json doit être minifier (avec par exemple https://codebeautify.org/jsonminifier).
 
 # Créer sont apps
 Premièrement il vous faut un dossier au nom de votre application sans majuscule, ni caractère spéciaux.
@@ -93,11 +93,9 @@ Par exemple le **init.json** de l'horloge de base (non minifier):
 `"nbrAnim" : ` Nombre d'animation disponible.  
 `"timeAnim" : ` Vitesse d'animation de votre icone en ms.  
 `"refresh" : ` Vitesse de rafraichissement du text afficher en ms.  
-`"icone" : ` Le graphisme de votre apps en 8x8. Le code hexa décimale définie la couleur du pixel.  
+`"icone" : ` Le graphisme de votre apps en 8x8. Le code hexa décimale définie la couleur du pixel.    
 
-
-Une fois votre **init.json** fini vous faudra le minifier.
-
+Une fois votre **init.json** fini vous faudra le minifier.  
 `var jsonHorloge = '{"nom":"Horloge","version":"0.0.1","description":"Une simple horloge.","auteur":"Kotec","animated":true,"nbrAnim":4,"timeAnim":1000,"refresh":500,"icone":[[["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000"]],[["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000"]],[["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000"]],[["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#FFFFFF","#000000","#000000","#000000","#000000","#000000","#FFFFFF","#000000"],["#000000","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#000000","#000000"],["#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000"]]]}';`
 
 
@@ -107,7 +105,7 @@ Une fois votre **init.json** fini vous faudra le minifier.
 Ce fichier contient le programme de votre apps. Il contient aussi les principales fonctions.  
 Par exemple le **apps.js** de l'horloge de base :   
 ``` 
-function initHorloge(){
+function initHorloge(){ // Fonction retournant les données de l'application
 	this.jsonData = JSON.parse(jsonHorloge);
 }
 
@@ -147,15 +145,14 @@ initHorloge.prototype.getTimeAnim = function(){
 	return this.jsonData.timeAnim;
 }
 
-function appsHorloge(){
+function appsHorloge(){ // Fonction retournant le text à afficher
 	var date = new Date(Date.now());
 	text = date.getHours().toString().padStart(2, 0) + ":" + date.getMinutes().toString().padStart(2, 0) + ":" + date.getSeconds().toString().padStart(2, 0);
 	return text;
 }
 ```
 
-Toute ces fonctions son obligatoire pour le bon fonctionnement de Kotec Home Display. Le nom des fonctions principale est important, pour plus de lisibilité et évité les doublons, il vaut mieux y inclure le nom de votre apps. 
-
+Toute ces fonctions son obligatoire pour le bon fonctionnement de Kotec Home Display. Le nom des fonctions principale est important, pour plus de lisibilité et évité les doublons, il vaut mieux y inclure le nom de votre apps.  
 
 ### Activer son apps
 Lors du chargement de la page index.html, le script va charger les données disponible dans le fichier **apps/initApps.json**. (non minifier ici)   
@@ -185,7 +182,10 @@ Lors du chargement de la page index.html, le script va charger les données disp
     }
   ]
 }
-```
+```  
+Les trois données suivante sont obligatoire :
 `"name" : ` Correspond au nom du dossier de votre apps.  
 `"initFunction" : ` Correspond au nom de votre fonction init.  
-`"startFunction" : ` Corespond au nom de la fonction apps.
+`"startFunction" : ` Correspond au nom de la fonction apps.  
+
+Vous pouvez ajouter dans ce fichier autant de données que nécessaire au fonctionnemment de votre apps 
