@@ -18,7 +18,7 @@ Il y a 2 afficheur :
 La couleur de chaque pixel, est définie par un code hexa.
 
 # Créer sont apps
-La hiérachie du dossier de votre apps doit contenir les fichiers suivants obligatoirement
+La hiérachie du dossier de votre apps doit contenir les fichiers suivants obligatoirement :
  - init.json
  - apps.js
  
@@ -102,7 +102,8 @@ Le fichier **init.json** ne contient donc pas de données json brut mais une var
 ### apps.js
 Ce fichier contient le programme de votre apps. Il contient aussi les principales fonctions.  
 Par exemple le **apps.js** de l'horloge de base :   
-``` function initHorloge(){
+``` 
+function initHorloge(){
 	this.jsonData = JSON.parse(jsonHorloge);
 }
 
@@ -147,6 +148,7 @@ function appsHorloge(){
 	text = date.getHours().toString().padStart(2, 0) + ":" + date.getMinutes().toString().padStart(2, 0) + ":" + date.getSeconds().toString().padStart(2, 0);
 	//console.log(text);
 	return text;
-}```
+}
+```
 
-Toute ces fonctions son obligatoire pour le bon fonctionnement de Kotec Home Display.
+Toute ces fonctions son obligatoire pour le bon fonctionnement de Kotec Home Display. Le nom des fonctions n'est pas important, mais pour plus de lisibilité, il vaut mieux y inclure le nom de votre apps. 
