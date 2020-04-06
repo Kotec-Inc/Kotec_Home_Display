@@ -22,6 +22,7 @@ Les fichiers de type **.json** ne contient pas de données json brut mais une va
 le minifier (avec par exemple https://codebeautify.org/jsonminifier)
 
 # Créer sont apps
+Premièrement il vous faut un dossier au nom de votre application sans majuscule, ni caractère spéciaux.
 La hiérachie du dossier de votre apps doit contenir les fichiers suivants obligatoirement :
  - init.json
  - apps.js
@@ -156,13 +157,13 @@ function appsHorloge(){
 Toute ces fonctions son obligatoire pour le bon fonctionnement de Kotec Home Display. Le nom des fonctions principale est important, pour plus de lisibilité et évité les doublons, il vaut mieux y inclure le nom de votre apps. 
 
 
-### Activer sont apps
-Lors du chargement de la page, le script va charger les données disponible dans le fichier **apps/initApps.json**. (non minifier ici)   
+### Activer son apps
+Lors du chargement de la page index.html, le script va charger les données disponible dans le fichier **apps/initApps.json**. (non minifier ici)   
 ```
 {
   "list": [
     {
-      "name": "Horloge",
+      "name": "horloge",
       "initFunction": "initHorloge",
       "startFunction": "appsHorloge"
     },
@@ -185,3 +186,6 @@ Lors du chargement de la page, le script va charger les données disponible dans
   ]
 }
 ```
+`"name" : ` Correspond au nom du dossier de votre apps.  
+`"initFunction" : ` Correspond au nom de votre fonction init.  
+`"startFunction" : ` Corespond au nom de la fonction apps.
