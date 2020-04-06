@@ -1,16 +1,8 @@
-var API;
-var myApps;
-function initOpenweathermap(){
-	var xhr = getXMLHttpRequest();
-	myApps = initKotec.getData()[selected];
+var apiOpenweathermap;
 
-	// Chargement du fichier
-	xhr.open("GET", 'Apps/openweathermap/application.json', false);
-	xhr.send(null);
-	if(xhr.readyState != 4 || (xhr.status != 200 && xhr.status != 0)) // Code == 0 en local
-		throw new Error("Impossible de charger la carte nommée \"" + nom + "\" (code HTTP : " + xhr.status + ").");
-	var json = xhr.responseText;
-	this.jsonData = JSON.parse(json);
+function initOpenweathermap(){
+	myApps = initKotec.getData()[selected];
+	this.jsonData = JSON.parse(jsonOpenweathermap);
 }
 
 initOpenweathermap.prototype.getName = function() {
@@ -74,18 +66,18 @@ loadData.prototype.getLastCall = function(){
 }
 
 function appsOpenweathermap(){
-	if(API === undefined){
+	if(apiOpenweathermap === undefined){
 		console.log("loadData Meteo");
-		API = new loadData();
+		apiOpenweathermap = new loadData();
 	}
 	else{
-		if(Date.now() - API.getLastCall() > 10 * 60 * 1000 ){ // Si on est supérieur à 10min (en ms) on rappel l'API 
-			API = '';
-			API = new loadData();
+		if(Date.now() - apiOpenweathermap.getLastCall() > 10 * 60 * 1000 ){ // Si on est supérieur à 10min (en ms) on rappel l'API 
+			apiOpenweathermap = '';
+			apiOpenweathermap = new loadData();
 		}
 	}
 	
-	temp = API.getTemperature();
+	temp = apiOpenweathermap.getTemperature();
 	if(temp > 0)
 		text = " +"+ temp +"°C";
 	else

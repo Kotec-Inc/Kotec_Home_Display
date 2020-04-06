@@ -1,16 +1,8 @@
 var apiCryptocompare;
-var myApps;
-function initCryptocompare(){
-	var xhr = getXMLHttpRequest();
-	myApps = initKotec.getData()[selected];
 
-	// Chargement du fichier
-	xhr.open("GET", 'Apps/cryptocompare/application.json', false);
-	xhr.send(null);
-	if(xhr.readyState != 4 || (xhr.status != 200 && xhr.status != 0)) // Code == 0 en local
-		throw new Error("Impossible de charger la carte nommée \"" + nom + "\" (code HTTP : " + xhr.status + ").");
-	var json = xhr.responseText;
-	this.jsonData = JSON.parse(json);
+function initCryptocompare(){
+	myApps = initKotec.getData()[selected];
+	this.jsonData = JSON.parse(jsonCryptocompare);
 }
 
 initCryptocompare.prototype.getName = function() {
@@ -51,6 +43,7 @@ function loadCryptocompare(){
 	var json = xhr.responseText;
 	this.data = JSON.parse(json);
 	this.data.lastCall = Date.now();
+	
 	console.log("Appel de l'API");
 	console.log(this.data);
 }
@@ -77,7 +70,7 @@ function appsCryptocompare(){
 	}
 	
 	prix = apiCryptocompare.getPrix();
-	text = " " + prix;
+	text = prix + '€';
 	//console.log(text);
 	return text;
 }
