@@ -81,9 +81,8 @@ Par exemple le init.json de l'horloge de base :
 }
 ```
 `"nom" : ` Nom de votre application.
-
-`"version" : ` Version actuelle de votre application.
-`"description" : ` Courte déscription de votre application. 
+ `"version" : ` Version actuelle de votre application.
+ `"description" : ` Courte déscription de votre application. 
 `"auteur" : ` Votre nom ou pseudo.
 `"animated" : ` Si l'icone de votre application peux s'animer : true, sinon false.
 `"nbrAnim" : ` Nombre d'animation disponible.
